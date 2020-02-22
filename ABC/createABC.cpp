@@ -23,3 +23,7 @@ int main(){
         bool result = fs::create_directory(tmp);
     }
 }
+/*終わった後に 
+ * $ find . -type d -empty -not -path './.git*' -exec touch {}\/.gitignore \;
+    をするとgit使ったときに幸せになれる
+*/
