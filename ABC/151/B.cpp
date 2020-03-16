@@ -10,20 +10,27 @@ const int INF = 1e9;
 const int MOD = 1e9+7;
 const ll LINF = 1e18;
 
-//最大公約数
-ll gcd(ll a, ll b){
-    if(b==0) return a;
-    else return gcd(b, a%b);
-}
-
-//最小公倍数
-ll lcm(ll a, ll b){
-    return a / gcd(a,b) * b;
-}
-
 int main()
 {
-    ll a,b;cin>>a>>b;
-    cout << lcm(a,b)<<endl;
+    int n,k,m;cin>>n>>k>>m;
+
+    vector<float> a(n);
+    rep(i,n-1)cin>>a[i];
+
+    int sum = 0;
+    rep(i,n-1)sum+=a[i];
+
+    int ans = -1;
+
+    for(int i = 0;i<=k;i++){
+        int tmp = sum + i;
+        float ave = (float)tmp/n;
+        if(ave >= m){
+            ans = i;
+            break;
+        }
+    }
+    cout << ans << endl;
+
     return 0;
 }

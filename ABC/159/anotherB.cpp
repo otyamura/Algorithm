@@ -10,20 +10,20 @@ const int INF = 1e9;
 const int MOD = 1e9+7;
 const ll LINF = 1e18;
 
-//最大公約数
-ll gcd(ll a, ll b){
-    if(b==0) return a;
-    else return gcd(b, a%b);
-}
-
-//最小公倍数
-ll lcm(ll a, ll b){
-    return a / gcd(a,b) * b;
-}
-
 int main()
 {
-    ll a,b;cin>>a>>b;
-    cout << lcm(a,b)<<endl;
+    ll h,w;cin>>h>>w;
+    ll first = ceil( (float) h/2);
+    ll second = floor(h/2);
+    ll ans = 0;
+
+    if(w%2 == 0){
+        ans += first*w/2 + second *w/2;
+    }else{
+        ans += first*(w-1)/2 + second *(w-1)/2;
+        ans += first;
+    }
+
+    cout << ans << endl;
     return 0;
 }
