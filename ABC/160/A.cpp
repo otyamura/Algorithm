@@ -12,18 +12,11 @@ const ll LINF = 1e18;
 
 int main()
 {
-    ll h,w;cin>>h>>w;
-    ll first = ceil( (float) h/2);
-    ll second = floor(h/2);
-    ll ans = 0;
-
-    if(w%2 == 0){
-        ans += first*w/2 + second *w/2;
-    }else{
-        ans += first*(w-1)/2 + second *(w-1)/2;
-        ans += first;
-    }
-
-    cout << ans << endl;
-    return 0;
+  string s; cin >> s;
+  if (s[2] == s[3] && s[4] == s[5]) {
+    cout << "Yes" << endl;
+  } else {
+    cout << "No" << endl;
+  }
+  return 0;
 }
