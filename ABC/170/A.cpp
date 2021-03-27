@@ -11,8 +11,13 @@ const int MOD = 1e9 + 7;
 const ll LINF = 1e18;
 
 int main() {
-  int x, y, z;
-  cin >> x >> y >> z;
-  cout << z << " " << x << " " << y << endl;
+  vector<int> a(5);
+  rep(i, 5) { cin >> a[i]; }
+  rep(i, 5) {
+    if (a[i] == 0) {
+      cout << i + 1 << endl;
+      return 0;
+    }
+  }
   return 0;
 }

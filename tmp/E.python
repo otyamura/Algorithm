@@ -1,0 +1,24 @@
+import csv
+import pprint
+
+# csv処理
+with open('./sample.csv') as f:
+  reader = csv.reader(f)
+  sample = [row for row in reader]
+
+# 取り出したリストをそれぞれ逆転させる
+sample[0].reverse()
+sample[1].reverse()
+
+# 最後に,がつかないように気をつけて出力
+print(len(sample[0]))
+for i in sample[0]:
+  if i == sample[0][len(sample[0])-1]:
+    print(i)
+  else:
+    print(i, end=',')
+for i in sample[1]:
+  if i == sample[1][len(sample[1])-1]:
+    print(i)
+  else:
+    print(i, end=',')

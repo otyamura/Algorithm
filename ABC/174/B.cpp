@@ -11,8 +11,20 @@ const int MOD = 1e9 + 7;
 const ll LINF = 1e18;
 
 int main() {
-  int x, y, z;
-  cin >> x >> y >> z;
-  cout << z << " " << x << " " << y << endl;
+  ll n, d;
+  cin >> n >> d;
+  vector<ll> x(n);
+  vector<ll> y(n);
+  rep(i, n) cin >> x[i] >> y[i];
+  ll ans = 0;
+  rep(i, n) {
+    double dis = sqrt(pow(x[i], 2) + pow(y[i], 2));
+    if (dis <= d) {
+      ans++;
+    }
+  }
+
+  cout << ans << endl;
+
   return 0;
 }

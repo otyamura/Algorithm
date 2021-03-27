@@ -11,8 +11,8 @@ const int MOD = 1e9 + 7;
 const ll LINF = 1e18;
 
 int main() {
-  int x, y, z;
-  cin >> x >> y >> z;
-  cout << z << " " << x << " " << y << endl;
+  int x;
+  cin >> x;
+  cout << (x >= 30 ? "Yes" : "No") << endl;
   return 0;
 }
