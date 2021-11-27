@@ -9,15 +9,26 @@ using ll = long long;
 const int INF = 1e9;
 const int MOD = 1e9+7;
 const ll LINF = 1e18;
+
 int main(){
-  ll n;
-  cin >> n;
-  ll count = 0;
+  string s;
+  cin >> s;
 
-  for (ll i = 1000;i <= n;i *= 1000) {
-    count += n - i + 1;
+  int a = 0;
+  rep(i,s.size()) {
+    if (s[i] == 'A') {
+      a = i;
+      break;
+    }
   }
+  int z = 0;
+  for (int i = s.size() - 1; i >= 0; i--) {
+    if (s[i] == 'Z') {
+      z = i;
+      break;
+    }
+  }
+  cout << z - a + 1 << endl;
 
-  cout << count << endl;
   return 0;
 }

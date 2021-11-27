@@ -10,12 +10,24 @@ const int INF = 1e9;
 const int MOD = 1e9+7;
 const ll LINF = 1e18;
 int main(){
-  ll n;
+  int n;
   cin >> n;
-  ll count = 0;
-
-  for (ll i = 1000;i <= n;i *= 1000) {
-    count += n - i + 1;
+  vector<int> A(n), B(n), C(n);
+  rep(i, n){
+    cin >> A[i];
+  }
+  rep(i, n){
+    cin >> B[i];
+  }
+  rep(i, n){
+    cin >> C[i];
+    C[i]--;
+  }
+  int count = 0;
+  rep(i, n) {
+    rep(j, n) {
+      if (A[i] == B[C[j]]) count++;
+    }
   }
 
   cout << count << endl;

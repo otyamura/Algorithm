@@ -10,14 +10,13 @@ const int INF = 1e9;
 const int MOD = 1e9+7;
 const ll LINF = 1e18;
 int main(){
-  ll n;
-  cin >> n;
-  ll count = 0;
-
-  for (ll i = 1000;i <= n;i *= 1000) {
-    count += n - i + 1;
-  }
-
-  cout << count << endl;
+  string s;
+  cin >> s;
+  int before_size = s.size();
+  sort(all(s));
+  s.erase(unique(all(s)), s.end());
+  int after_size = s.size();
+  string out = before_size == after_size ? "yes" : "no";
+  cout << out << endl;
   return 0;
 }

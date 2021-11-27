@@ -10,14 +10,13 @@ const int INF = 1e9;
 const int MOD = 1e9+7;
 const ll LINF = 1e18;
 int main(){
-  ll n;
-  cin >> n;
-  ll count = 0;
-
-  for (ll i = 1000;i <= n;i *= 1000) {
-    count += n - i + 1;
+  string s;
+  cin >> s;
+  rep(i, s.size()) {
+    if (s[i] == '6') s[i] = '9';
+    else if (s[i] == '9') s[i] = '6';
   }
-
-  cout << count << endl;
+  reverse(all(s));
+  cout << s << endl;
   return 0;
 }

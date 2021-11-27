@@ -10,14 +10,15 @@ const int INF = 1e9;
 const int MOD = 1e9+7;
 const ll LINF = 1e18;
 int main(){
-  ll n;
-  cin >> n;
-  ll count = 0;
-
-  for (ll i = 1000;i <= n;i *= 1000) {
-    count += n - i + 1;
+  int n, k;
+  cin >> n >> k;
+  int ans = 0;
+  for (int i = 1;i <= n;i++) {
+    for (int j = 1;j <= k;j++) {
+      ans += i * 100 + j;
+    }
   }
 
-  cout << count << endl;
+  cout << ans << endl;
   return 0;
 }

@@ -10,14 +10,21 @@ const int INF = 1e9;
 const int MOD = 1e9+7;
 const ll LINF = 1e18;
 int main(){
-  ll n;
-  cin >> n;
-  ll count = 0;
+  int n, m;
+  cin >> n >> m;
 
-  for (ll i = 1000;i <= n;i *= 1000) {
-    count += n - i + 1;
-  }
+  vector<int> a(n);
+  vector<int> b(m);
 
-  cout << count << endl;
+  rep(i, n) cin >> a[i];
+  rep(i, m) cin >> b[i];
+
+  sort(all(a));
+  sort(all(b));
+
+
+
+  for(auto x : a) cout << x << endl;
+
   return 0;
 }

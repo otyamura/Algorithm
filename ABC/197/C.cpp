@@ -12,26 +12,33 @@ const ll LINF = 1e18;
 int main(){
   int n;
   cin >> n;
-  vector<int> a(n);
+  vector<ll> a(n);
+  ll mn = LINF;
   rep(i, n) cin >> a[i];
-  ll min = LINF;
-  ll left = 0;
-  ll right = 0;
-  for (int i = 0; i < n; i++) {
-    right = right | a[i];
-  }
-
-
-  for(int i = 0;i < n - 1;i++) {
-    left = left | a[i];
-    for (int j = i + 1;j < n;j++){
-      if (a[i] > right) {
-        right = right - a[i];
+  for(int i = 0; i < (1 << (n-1)); i++) {
+    vector<ll> v;
+    int ind = 0;
+    ll ored = 0;
+    for (int j = 0;j < n;j++) {
+      ored |= a[ind];
+      ind++;
+      if (i & (1 << j)) {
+        v.push_back(ored);
+        ored = 0;
       }
-      ll tmp = left ^ right;
-      if (tmp < min) min = tmp;
     }
+    v.push_back(ored);
+    // separate length
+    // cout << "size : " << v.size() << endl;
+    if (v.size() <= 0) continue;
+    ll xored = 0;
+    // cout << "i : " << i << endl;
+    for (ll x : v) {
+      // cout << x << endl;
+      xored = xored ^ x;
+    }
+    mn = min(mn, xored);
   }
-  cout << min << endl;
+  cout << mn << endl;
   return 0;
 }

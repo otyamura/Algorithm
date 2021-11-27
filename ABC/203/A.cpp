@@ -10,14 +10,17 @@ const int INF = 1e9;
 const int MOD = 1e9+7;
 const ll LINF = 1e18;
 int main(){
-  ll n;
-  cin >> n;
-  ll count = 0;
-
-  for (ll i = 1000;i <= n;i *= 1000) {
-    count += n - i + 1;
+  int a, b, c;
+  cin >> a >> b >> c;
+  if (a == b) {
+    cout << c << endl;
+  } else if (a == c) {
+    cout << b << endl;
+  } else if (b == c) {
+    cout << a << endl;
+  } else {
+    cout << 0 << endl;
   }
 
-  cout << count << endl;
   return 0;
 }

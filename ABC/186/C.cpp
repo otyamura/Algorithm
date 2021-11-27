@@ -10,14 +10,23 @@ const int INF = 1e9;
 const int MOD = 1e9+7;
 const ll LINF = 1e18;
 int main(){
-  ll n;
+  int n;
   cin >> n;
-  ll count = 0;
 
-  for (ll i = 1000;i <= n;i *= 1000) {
-    count += n - i + 1;
+  ll ans = 0;
+
+  for (int i = 1;i <= n;i++) {
+    bool hasSeven = false;
+    string s = to_string(i);
+    if (s.find('7') != string::npos) hasSeven = true;
+    stringstream ss;
+    ss << oct << i;
+    s = ss.str();
+    if (s.find('7') != string::npos) hasSeven = true;
+
+    if(!hasSeven) ans++;
   }
+  cout << ans << endl;
 
-  cout << count << endl;
   return 0;
 }
