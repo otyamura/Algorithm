@@ -13,19 +13,6 @@ int main(){
   int n;
   cin >> n;
   vector<int> a(n);
-  vector<ll> s(200);
-
-  rep(i, n) {
-    cin >> a[i];
-    s[a[i]%200]++;
-  }
-
-  ll ans = 0;
-  for(int i = 0;i < 200;i++){
-    if (s[i] <= 1) continue;
-    ans += 0.5 * s[i] * (s[i] - 1);
-  }
-  cout << ans << endl;
-
+  rep(i, n) cin >> a[i];
   return 0;
 }

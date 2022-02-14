@@ -9,23 +9,17 @@ using ll = long long;
 const int INF = 1e9;
 const int MOD = 1e9+7;
 const ll LINF = 1e18;
+
+
+
 int main(){
   int n;
   cin >> n;
   vector<int> a(n);
-  vector<ll> s(200);
-
-  rep(i, n) {
+  for (int i = 0; i < n; i++) {
     cin >> a[i];
-    s[a[i]%200]++;
   }
-
-  ll ans = 0;
-  for(int i = 0;i < 200;i++){
-    if (s[i] <= 1) continue;
-    ans += 0.5 * s[i] * (s[i] - 1);
-  }
-  cout << ans << endl;
-
+  mergeSort(a, 0, n);
+  printArray(a);
   return 0;
 }

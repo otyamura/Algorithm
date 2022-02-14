@@ -10,22 +10,31 @@ const int INF = 1e9;
 const int MOD = 1e9+7;
 const ll LINF = 1e18;
 int main(){
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  vector<ll> s(200);
+  int n, k;
+  cin >> n >> k;
+
+  vector<ll> v(n);
+  rep(i, n) {
+    rep(j, 3) {
+      ll tmp;
+      cin >> tmp;
+      v[i] += tmp;
+    }
+  }
+  vector<ll> s(n);
+  s = v;
+  sort(rall(v));
+
+  int score = v[k - 1] - 300;
+
 
   rep(i, n) {
-    cin >> a[i];
-    s[a[i]%200]++;
+    if (s[i] >= score) {
+      cout << "Yes" << endl;
+    } else {
+      cout << "No" << endl;
+    }
   }
-
-  ll ans = 0;
-  for(int i = 0;i < 200;i++){
-    if (s[i] <= 1) continue;
-    ans += 0.5 * s[i] * (s[i] - 1);
-  }
-  cout << ans << endl;
 
   return 0;
 }
